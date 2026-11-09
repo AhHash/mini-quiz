@@ -1,0 +1,39 @@
+/* Container across full viewport behind content */
+.decorations-layer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none; /* Clicks and taps continue to pass straight through */
+  z-index: 0;
+  overflow: hidden;
+}
+
+/* Individual item wrapper */
+.deco-item {
+  position: absolute;
+  opacity: 0.85; /* Slightly increased so the photos are clear */
+  transition: transform 0.3s ease;
+}
+
+/* Photo styling */
+.deco-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Crops photos cleanly to match their container dimensions */
+  border-radius: 20px;
+  border: 3px solid #ffb6c1;
+  box-shadow: 0 4px 12px rgba(255, 105, 180, 0.2);
+  display: block;
+  box-sizing: border-box;
+}
+
+/* Desktop sizing */
+@media (min-width: 768px) {
+  .deco-item {
+    width: var(--d-width) !important;
+    height: var(--d-height) !important;
+  }
+
+  .deco-img {
+    border-radius: 24px;
+  }
+}
